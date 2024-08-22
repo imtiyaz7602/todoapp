@@ -1,8 +1,8 @@
 let inp=document.querySelector("input");
 let btn=document.querySelector("button");
 let ul=document.querySelector("ul");
-btn.addEventListener("click",function(){
-   
+
+function help(){
    let val=inp.value;
    let item=document.createElement("li");
    item.innerText=val;
@@ -14,7 +14,13 @@ btn.addEventListener("click",function(){
    ul.appendChild(item);
 
    inp.value="";
-});
+}
+btn.addEventListener("click",help);
+inp.addEventListener("keypress",function(event){
+   if(event.key==="Enter"){
+      help();
+   }
+})
 
 let dbtns=document.querySelectorAll(".delete");
 ul.addEventListener("click",function(event){
